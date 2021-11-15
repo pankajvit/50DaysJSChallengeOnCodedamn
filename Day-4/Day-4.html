@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-4 JS Challenge</title>
+</head>
+
+<body>
+
+    <!-- Write a function which can convert the time input given in 12 hours format to 24 hours format////// -->
+    <script>
+        const time = '11:8AM';
+
+        function convertTo24HrsFormat(time) {
+            // console.log(typeof time);
+            const timeArr = time.split("");
+            let hour = "";
+            let min = -1;
+            let flag = false;
+            for (let i = 0; i < timeArr.length; i++) {
+                if (timeArr[i] == ':') {
+                    break;
+                }
+                else {
+                    hour += timeArr[i];
+                }
+            }
+            for (let i = 0; i < timeArr.length; i++) {
+                if (timeArr[i] == ':') {
+                    flag = true;
+                }
+                if (timeArr[i] == 'A' || timeArr[i] == 'P') {
+                    break;
+                }
+                if (flag) {
+                    min++;
+                }
+            }
+            // hour = Number(hour);
+            // console.log(hour.length);
+            // console.log(time);
+            // console.log(hour);
+            // write your solution here
+            if (time.endsWith("AM")) {
+                if (hour.length < 2) {
+                    timeArr.unshift('0');
+                }
+                console.log(min);
+                if (min < 2) {
+                    let index = timeArr.indexOf(':');
+                    timeArr.splice(index + 1, 0, "0");
+                }
+                if (hour > 11) {
+                    timeArr.shift();
+                    timeArr.shift();
+                    timeArr.unshift('0');
+                    timeArr.unshift('0');
+                    timeArr.pop();
+                    timeArr.pop();
+                }
+                else if (hour == 12) {
+                    // timeArr.shift();
+                    // timeArr.shift();
+                    // timeArr.unshift('4');
+                    // timeArr.unshift('2');
+                    timeArr.pop();
+                    timeArr.pop();
+                } else {
+                    timeArr.pop();
+                    timeArr.pop();
+                }
+            }
+            else {
+                // console.log('inside PM logic');
+                // console.log(hour);
+                if (hour.length < 2) {
+                    timeArr.unshift('0');
+                }
+                console.log(min);
+                if (min < 2) {
+                    let index = timeArr.indexOf(':');
+                    timeArr.splice(index + 1, 0, "0");
+                }
+                if (hour >= 1 && hour <= 11) {
+                    hour = Number(hour);
+                    hour = 12 + hour;
+                    // console.log(hour);
+                    hour = String(hour);
+                    hourArr = hour.split("");
+                    // console.log(hourArr);
+                    timeArr.shift();
+                    timeArr.shift();
+                    timeArr.unshift(hourArr[1]);
+                    timeArr.unshift(hourArr[0]);
+                    timeArr.pop();
+                    timeArr.pop();
+                    // console.log(timeArr);
+                } else if (hour == 12) {
+                    timeArr.pop();
+                    timeArr.pop();
+                }
+            }
+            return timeArr.join("");
+        }
+        console.log(`Converted time: ${convertTo24HrsFormat(time)}`)
+    </script>
+</body>
+
+</html>
