@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day-5 JS Challenge</title>
 </head>
+
 <body>
-    
-<!-- Write a function which accepts a string argument and returns the count of characters between the first and last character 'X' -->
+
+    <!-- Write a function which accepts a string argument and returns the count of characters between the first and last character 'X' -->
 
     <script>
-        
+        const str = 'XeroX';
+
+        function getTheGapX(str) {
+            // write your solution here
+            const lastXIndex = str.lastIndexOf('X');
+            const firstXIndex = str.indexOf('X');
+            const charCount = lastXIndex - firstXIndex;
+            if (firstXIndex == -1 && lastXIndex == -1) {
+                return -1;
+            }
+            return charCount;
+        }
+
+        console.log(`Gap between the X's: ${getTheGapX(str)}`)
     </script>
 </body>
+
 </html>
