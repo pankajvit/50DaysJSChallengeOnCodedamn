@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-10 JS Challenge</title>
+</head>
+
+<body>
+    <!-- Write a function to remove array element based on object property? -->
+    <!-- Test cases -->
+    <!-- removeArrayElement("money") returns the array without the money object
+    removeArrayElement("id") returns the array without the id object
+    removeArrayElement("cStatus") returns the array without the cStatus object -->
+
+
+    <script>
+        const array = [
+            { field: "id", operator: "eq" },
+            { field: "cStatus", operator: "eq" },
+            { field: "money", operator: "eq" },
+        ];
+
+        const filterField = "id";
+
+        function removeArrayElement(filterField) {
+            // write your solution here
+            // array.forEach(function (item, index) {
+            //     if (item.field == filterField) {
+            //         array.splice(index, 1);
+            //     }
+            // });
+            // return array;
+            myarray = array.filter(function (obj) {
+                return obj.field != filterField;
+            });
+            return myarray;
+        }
+
+        console.log(`filtered array: ${removeArrayElement(filterField)}`)
+        console.log(myarray);
+    </script>
+</body>
+
+</html>
