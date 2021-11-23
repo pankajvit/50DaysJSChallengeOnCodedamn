@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day - 11 JS Challenge</title>
+</head>
+
+<body>
+
+    <!-- Return the N-th value of the Fibonacci sequence -->
+
+    <script>
+        function fibonacci(n) {
+            // write your solution here
+            let firstTerm = 1;
+            let secondTerm = 1;
+            let i = 3;
+            while (i <= n) {
+                thirdTerm = firstTerm + secondTerm;
+                firstTerm = secondTerm;
+                secondTerm = thirdTerm;
+                i++;
+            }
+            return thirdTerm;
+        }
+
+        console.log(`fibonacci value at position 5: ${fibonacci(5)}`)
+
+    </script>
+</body>
+
+</html>
